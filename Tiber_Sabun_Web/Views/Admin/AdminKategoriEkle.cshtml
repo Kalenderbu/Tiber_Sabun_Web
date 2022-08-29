@@ -1,0 +1,65 @@
+﻿@model Tiber_Sabun_Web.Models.UrunKategoriTbl
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-heading">
+    <div class="row match-height">
+        <div class="col-md-6 col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Ürün Kategori Ekleme</h4>
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        @using (Html.BeginForm("AdminKategoriEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form form-vertical" }))
+                        {
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group has-icon-left">
+                                            <label for="Adi">Kategori Adı</label>
+                                            <div class="position-relative">
+                                                <input type="text" class="form-control"
+                                                   placeholder="Kategori Adını Giriniz"
+                                                   name="Adi"
+                                                   id="Adi"
+                                                   required>
+                                                <div class="form-control-icon">
+                                                    <i class="bi bi-pen"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group has-icon-left">
+                                            <label for="Adi">Kategori Açıklaması</label>
+                                            <div class="position-relative">
+                                                <textarea type="text" class="form-control"
+                                                      placeholder="Açıklama Giriniz"
+                                                      name="Aciklama"
+                                                      id="Aciklama"
+                                                      required></textarea>
+                                                <div class="form-control-icon">
+                                                    <i class="bi bi-pen"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <a class="btn btn-primary me-1 mb-1" href="@Url.Action("AdminKategoriListe","Admin")">Listele</a>
+                                        <button type="submit"
+                                            class="btn btn-primary me-1 mb-1">
+                                            Kaydet
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

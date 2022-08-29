@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Ürünler";
+
+}
+<link href="~/css/Liste.css" rel="stylesheet">
+<form method="get" asp-controller="Home" asp-action="UrunListe" enctype="multipart/form-data">
+    <div class="container">
+        <div id="content" class="my-5">
+            <div class="form-group">
+                <div style="float:right">
+                    <input type="submit" class="btn btn-info" name="btn" value="Ara"/>
+                </div>
+                <div style="width:15%; float:right">
+                    <input type="text" class=" form-control" id="ara" placeholder="Ürün ara" name="ara" maxlength="50">
+                </div>
+            </div>
+            <br />
+        </div>
+     </div>
+</form>
+<form method="get" asp-controller="Home" asp-action="UrunDetay" enctype="multipart/form-data">
+    <div class="container">
+        <div id="content" class="my-5">
+            <div id="products">
+                <div class="row mx-0">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-3 col-md-3 mb-4">
+                            <div class="card d-flex flex-column align-items-center">
+                                <button style="background:none;color:inherit;border:none;padding:0;font:inherit;cursor:pointer;outline:inherit;" asp-controller="Home" asp-action="UrunDetay" asp-route-id="@item.ID">
+                                    <div class="product-name">@item.Adi</div>
+                                    <div class="product-name"><small>@item.KategoriAdi</small></div>
+                                    <div class="card-img">
+                                        <img src="~/UrunResimleri/@item.Fotolar.Split(';')[0]" alt="">
+                                    </div>
+                                    
+                                    <div class="d-flex price">
+                                        <div class="del mr-2">
+                                            <span class="text-dark">5500 uah</span>
+                                        </div>
+                                        <div class="font-weight-bold text-success">@item.Fiyat TL</div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+

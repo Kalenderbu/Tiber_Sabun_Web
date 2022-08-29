@@ -16,3 +16,11 @@ html {
 body {
   margin-bottom: 60px;
 }
+ul li.SagOk {
+    list-style: none;
+}
+
+    ul li.SagOk:before {
+        content: '\1F846';
+        margin-left: -6%;
+    }
