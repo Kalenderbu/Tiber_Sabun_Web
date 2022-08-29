@@ -166,6 +166,34 @@
     <script src="~/Content/admin/assets/js/pages/dashboard.js"></script>
 
     <script src="~/Content/admin/assets/js/main.js"></script>
+
+    <script> // Bu fonksiyon içerisine parametre olarak girilen metindeki . karakterleri , e dönüştürülür
+        
+        $(document).ready(function () {
+            $('#Fiyat').keyup(function () {
+                var deger = $('#Fiyat').val();
+                Donustur(deger);
+            });
+            $("#Fiyat").keypress(function (e) {
+                //Bu şart ile rakam girilmediği takdirde hata mesajı gösterilmesini sağlıyoruz.
+                if (e.which != 8 && e.which != 0 && e.which != 44 && e.which != 46 && (e.which < 48 || e.which > 57)) 
+                {
+                    //Hata Mesajı 
+                    $("#HataMesaji").html("Yalnızca Rakam ve . , Girilebilir!").fadeIn("slow");
+                    return false;
+                }
+                else 
+                {
+                    $("#HataMesaji").html("Yalnızca Rakam ve . , Girilebilir!").fadeOut("fast");
+                    return true;
+                }
+            });
+        });
+        function Donustur(deger) {
+            var DonusecekNesne = deger.replace(".", ",");
+            $('#Fiyat').val(DonusecekNesne);
+        }
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

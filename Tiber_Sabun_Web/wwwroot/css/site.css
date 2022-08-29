@@ -1,21 +1,22 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
 ul li.SagOk {
     list-style: none;
 }
@@ -24,3 +25,21 @@ ul li.SagOk {
         content: '\1F846';
         margin-left: -6%;
     }
+
+.btn:hover {
+    transform: scale(1.02)
+}
+
+.btn:active {
+    transform: scale(1)
+}
+
+p.replyfeed {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.NoStyleLink:hover {
+    text-decoration: none;
+}

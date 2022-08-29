@@ -281,7 +281,7 @@ label {
 }
 
     .card:hover {
-        box-shadow: 2px 2px 15px #fd9a6ce5;
+        box-shadow: 3px 3px 30px #fd9a6ce5;
         transform: scale(1.02)
     }
 

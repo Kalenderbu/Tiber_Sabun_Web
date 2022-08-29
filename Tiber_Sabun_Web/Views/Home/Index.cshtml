@@ -70,14 +70,14 @@
         @foreach (var item in Model)
         {
             <div class="col-lg-3 col-md-3 mb-4">
-                <div class="card d-flex flex-column align-items-center">
+                <div class="card d-flex flex-column">
                     <button style="background:none;color:inherit;border:none;padding:0;font:inherit;cursor:pointer;outline:inherit;" asp-controller="Home" asp-action="UrunDetay" asp-route-id="@item.ID">
                         <div class="product-name">@item.Adi</div>
                         <div class="product-name"><small>@item.KategoriAdi</small></div>
                         <div class="card-img">
                             <img src="~/UrunResimleri/@item.Fotolar.Split(';')[0]" alt="">
                         </div>
-                            <div class="d-flex price mt-4">
+                            <div class="price mt-4">
                             <div class="del">
                                 <span class="text-dark">5500 uah</span>
                             </div>

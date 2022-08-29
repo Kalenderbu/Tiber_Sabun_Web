@@ -44,7 +44,8 @@ namespace Tiber_Sabun_Web.Controllers
                 return RedirectToAction("AdminKategoriEkle", "Admin");
             }
             else
-                KategoriKayit.KayitTarihi = DateTime.Now;
+            KategoriKayit.Adi = KategoriKayit.Adi.ToUpper();
+            KategoriKayit.KayitTarihi = DateTime.Now;
             VeriTabani.UrunKategoriTablosu.Add(KategoriKayit);
             await VeriTabani.SaveChangesAsync();
             TempData["KayitOnay"] = "Kategori eklendi!";
@@ -66,7 +67,7 @@ namespace Tiber_Sabun_Web.Controllers
             [Bind("KategoriID", "Adi", "Aciklama", "KayitTarihi")] UrunKategoriTbl KategoriDuzelt)
         {
             UrunKategoriTbl DuzeltilecekNesne = VeriTabani.UrunKategoriTablosu.Find(KategoriDuzelt.KategoriID);
-            DuzeltilecekNesne.Adi = KategoriDuzelt.Adi;
+            DuzeltilecekNesne.Adi = KategoriDuzelt.Adi.ToUpper();
             DuzeltilecekNesne.Aciklama = KategoriDuzelt.Aciklama;
             DuzeltilecekNesne.KayitTarihi = DateTime.Now;
             VeriTabani.UrunKategoriTablosu.Update(DuzeltilecekNesne);
@@ -169,12 +170,12 @@ namespace Tiber_Sabun_Web.Controllers
         {
 
             UrunlerTbl DuzeltilecekNesne = VeriTabani.UrunlerTablosu.Find(UrunDuzelt.ID);
-            DuzeltilecekNesne.Adi = UrunDuzelt.Adi;
+            DuzeltilecekNesne.Adi = UrunDuzelt.Adi.ToUpper();
             DuzeltilecekNesne.KategoriID = UrunDuzelt.KategoriID;
             DuzeltilecekNesne.StokAdeti = UrunDuzelt.StokAdeti;
             DuzeltilecekNesne.KullanilanYaglar = UrunDuzelt.KullanilanYaglar;
             DuzeltilecekNesne.Aciklama = UrunDuzelt.Aciklama;
-            DuzeltilecekNesne.Fiyat= double.Parse(UrunDuzelt.Fiyat.ToString().Replace(".", ","));
+            DuzeltilecekNesne.Fiyat= UrunDuzelt.Fiyat;
             DuzeltilecekNesne.VideoLink = UrunDuzelt.VideoLink;
             DuzeltilecekNesne.KayitTarihi = DateTime.Now;
             if (UrunDuzelt.Dosya != null || !string.IsNullOrWhiteSpace(UrunDuzelt.Fotolar))

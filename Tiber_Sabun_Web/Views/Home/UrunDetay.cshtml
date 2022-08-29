@@ -6,7 +6,7 @@
 
 <div class="container-fluid pb-5">
     <small>
-        <i class="bi bi-house"></i><a class="NoStyleLink" href="/Home/Index">Ana Sayfa</a><i class="bi bi-arrow-right"></i><a href="/Home/UrunListe">Ürünler</a><i class="bi bi-arrow-right"></i><span>@Model.Adi</span>
+        <i class="bi bi-house"></i><a class="NoStyleLink p-2" href="/Home/Index">Ana Sayfa</a><i class="bi bi-arrow-right"></i><a class="NoStyleLink p-2" href="/Home/UrunListe">Ürünler</a><i class="bi bi-arrow-right"></i><a class="NoStyleLink p-2" asp-controller="Home" asp-action="UrunListe" asp-route-ara="@ViewBag.Kategori">@ViewBag.Kategori</a><i class="bi bi-arrow-right"></i><span class="p-2">@Model.Adi</span>
     </small>
     <div class="row mt-2">
         <div class="col-md-6">
@@ -50,22 +50,26 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="row ms-3">
+            <div class="row ps-3">
                 <div class="col-md-12 pt-1 pb-1">
                     <h1>@Model.Adi</h1>
-                    <b class="text-primary">Kategori: </b>
-                    <span class="product-number">@ViewBag.Kategori</span>
+                </div>
+                <div class="row pb-1">
+                    <div class="col-md-12">
+                        <b class="text-primary">Kategori: </b>
+                        <a class="NoStyleLink text-danger" asp-controller="Home" asp-action="UrunListe" asp-route-ara="@ViewBag.Kategori"><b>@ViewBag.Kategori</b></a>
+                    </div>
                 </div>
                 <div class="row pb-1">
                     <div class="col-md-12">
                         <b class="text-primary">Ürün Numarası: </b>
-                        <span class="product-number">@Model.ID</span>
+                        <b class="product-number">@Model.ID</b>
                     </div>
                 </div>
                 <div class="row pb-1">
                     <div class="col-md-12">
                         <b class="text-primary">Stok Adeti:</b>
-                        <span class="product-number">@Model.StokAdeti</span>
+                        <b class="product-number">@Model.StokAdeti</b>
                     </div>
                 </div>
                 <div class="row">
@@ -103,9 +107,9 @@
                                         string[] YagListe = Model.KullanilanYaglar.Split(',');
                                         for (int i = 1; i <= (YagListe.Count()); i++)
                                         {
-                                                    <li class="SagOk">
-                                                        @YagListe[i-1]
-                                                    </li>
+                                            <li class="SagOk">
+                                                @YagListe[i-1]
+                                            </li>
                                         }
                                     }
                                 </ul>
@@ -113,7 +117,7 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12 mt-1">
+                        <div class="col-md-12 mt-1" >
                             <h4 class="text-success mt-0" id="product-price">@Model.Fiyat TL</h4>
                         </div>
                     </div>

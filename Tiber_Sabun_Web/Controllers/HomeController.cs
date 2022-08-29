@@ -44,6 +44,7 @@ namespace Tiber_Sabun_Web.Controllers
             else if (Kategori != null)
             {
                 sorgu = sorgu.Where(x => x.KategoriID == Kategori).ToList();
+                ViewBag.KategoriYaz = VeriTabani.UrunKategoriTablosu.FirstOrDefault(x=>x.KategoriID == Kategori).Adi;
             }
             else if (Son6 == ";")
             {
@@ -58,7 +59,7 @@ namespace Tiber_Sabun_Web.Controllers
             }
             else if (!string.IsNullOrEmpty(Son6) && Son6 != ";")
             { 
-                sorgu=sorgu.Where(x=>x.Adi.Contains(Son6.ToUpper())).ToList();
+                sorgu=sorgu.Where(x=>x.Adi.Contains(Son6.ToUpper()) || x.KategoriAdi.Contains(Son6.ToUpper())).ToList();
             }
 
             return sorgu;
@@ -77,6 +78,7 @@ namespace Tiber_Sabun_Web.Controllers
             }
             if (!string.IsNullOrWhiteSpace(ara))
             {
+                ViewBag.KategoriYaz =ara;
                 return View(KategoriliUrunListesi(null, ara,null));
             }else
             return View(KategoriliUrunListesi(null, null,null));

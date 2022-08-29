@@ -8,7 +8,7 @@
         <div id="content" class="my-5">
             <div class="form-group">
                 <div style="float:right">
-                    <input type="submit" class="btn btn-info" name="btn" value="Ara"/>
+                    <button type="submit" class="btn btn-info" name="btn">Ara</button>
                 </div>
                 <div style="width:15%; float:right">
                     <input type="text" class=" form-control" id="ara" placeholder="Ürün ara" name="ara" maxlength="50">
@@ -16,11 +16,26 @@
             </div>
             <br />
         </div>
-     </div>
+    </div>
 </form>
 <form method="get" asp-controller="Home" asp-action="UrunDetay" enctype="multipart/form-data">
     <div class="container">
         <div id="content" class="my-5">
+            <div class="content ps-3 pb-3">
+                <small>
+                    <i class="bi bi-house"></i><a class="NoStyleLink p-2" href="/Home/Index">Ana Sayfa</a><i class="bi bi-arrow-right"></i>
+                    @if (ViewBag.KategoriYaz != null)
+                    {
+                        <a class="p-2"href="/Home/UrunListe">Ürünler</a>
+                        <i class="bi bi-arrow-right"></i>
+                        <span>@ViewBag.KategoriYaz</span>
+                    }
+                    else
+                    {
+                        <a class="p-2">Ürünler</a>
+                    }
+                </small>
+            </div>
             <div id="products">
                 <div class="row mx-0">
                     @foreach (var item in Model)
@@ -33,9 +48,8 @@
                                     <div class="card-img">
                                         <img src="~/UrunResimleri/@item.Fotolar.Split(';')[0]" alt="">
                                     </div>
-                                    
-                                    <div class="d-flex price">
-                                        <div class="del mr-2">
+                                    <div class="price mt-3">
+                                        <div class="del text-center">
                                             <span class="text-dark">5500 uah</span>
                                         </div>
                                         <div class="font-weight-bold text-success">@item.Fiyat TL</div>
