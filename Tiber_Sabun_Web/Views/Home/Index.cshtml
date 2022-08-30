@@ -63,7 +63,7 @@
 </div>
 <form method="get" asp-controller="Home" asp-action="UrunDetay" enctype="multipart/form-data">
 <div class="jumbotron m-5 p-3 ">
-    <h1 class="text-center">Son Eklenen Ürünler</h1>
+    <h1 class="text-center">Yeni ürünler</h1>
     <hr class="my-2">
     <div class="row">
         
@@ -77,13 +77,14 @@
                         <div class="card-img">
                             <img src="~/UrunResimleri/@item.Fotolar.Split(';')[0]" alt="">
                         </div>
-                            <div class="price mt-4">
+                            <div class="price mt-3">
                             <div class="del">
                                 <span class="text-dark">5500 uah</span>
                             </div>
                             <div class="font-weight-bold text-success">@item.Fiyat TL</div>
                         </div>
                     </button>
+                        <a href="/Home/UrunDetay/@item.ID" class="btn container-fluid CardButton text-light bg-success">Ürüne Git</a>
                 </div>
             </div>
         }
