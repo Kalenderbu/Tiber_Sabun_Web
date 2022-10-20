@@ -2,6 +2,10 @@
 <html lang="tr">
 <head>
     <meta charset="utf-8" />
+    <meta name="author" content="Mustafa KALENDER"/>
+    <meta name="title" content="Tiber Sabun"/> 
+    <meta name="description" content="Sabun ve Doğal ürün satışı" />
+    <meta name="keywords" content="Tiber Sabun,Tiber,Sabun,Sena Kutlu,Tibersk,doğal ürünler,Doğal sabun" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Tiber_Sabun_Web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -9,22 +13,18 @@
     <link rel="stylesheet" href="~/Tiber_Sabun_Web.styles.css" asp-append-version="true" />
     <link rel="canonical" href="https://getbootstrap.com/docs/4.2/examples/carousel/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
     <!-- Custom styles for this template -->
-
     <link href="https://getbootstrap.com/docs/4.2/examples/carousel/carousel.css" rel="stylesheet">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/components/carousel/">
-
 </head>
 @{
     Context VeriTabani = new Context();
 }
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark bg-gradient">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark bg-gradient post-body">
             <i class="bi bi-sun text-warning pt-0 ps-0 btn-lg "></i>
             <i class="bi bi-water text-primary ps-0 btn-lg" style="position:absolute; padding-top:2%; vertical-align:bottom; "></i>
             <a style="background:none;color:inherit;border:none;padding:0;font:inherit;cursor:pointer;outline:inherit;" asp-controller="Home" asp-action="Index"><b class="navbar-brand ps-1 text-info ">TİBER</b></a>
@@ -52,16 +52,21 @@
                         <a class="nav-link text-light" href="/Home/Hakkinda">Hakkında</a>
                     </li>
                     <form method="get" asp-controller="Home" asp-action="UrunListe" enctype="multipart/form-data">
-                        <div class="form-group m-auto ps-3" style="width:150%; position:relative;">
-                            <input type="text" class=" form-control" id="ara" placeholder="Ürün veya kategori ara" name="ara"><button type="submit" style="display:none;" class="btn btn-info" name="btn"></button>
+                        <div class="input-group ms-3">
+                            <div class="form-outline">
+                                <input type="text" class="form-control" id="ara" placeholder="Ürün veya kategori ara" name="ara">
+                            </div>
+                            <button type="submit" class="btn btn-secondary">
+                                <i class="bi bi-search"></i>
+                            </button>
                         </div>
                     </form>
                 </ul>
-                <a class="btn btn-sm me-5 text-light bg-gradient" style="border:1px solid green;background-color:#00B803; color:#348adb;box-shadow:0 6px 6px rgba(0, 0, 0, 0.6);" href="/Home/Sepet"><i class="bi bi-cart4 text-light"></i> Sepet</a>
+                <a class="btn btn-sm me-4 text-light bg-gradient" style="border:1px solid green;background-color:#00B803; color:#348adb;box-shadow:0 6px 6px rgba(0, 0, 0, 0.6);" href="/Home/Sepet"><i class="bi bi-cart4 text-light"></i> Sepet</a>
                 <a class="btn btn-sm text-light bg-gradient" style="border:1px solid #348adb;background-color:#348adb; color:#348adb;box-shadow:0 6px 6px rgba(0, 0, 0, 0.6);" href="/Admin/AdminIndex"><i class="bi bi-person-circle text-light"></i> Giriş Yap</a>
                 <a class="bi bi-instagram btn-lg text-danger p-0 ms-3" href="https://www.instagram.com/tiber.sk/"></a><span class="p-2"></span>
-                <a class="bi bi-whatsapp btn-lg text-success p-0" href="#"></a><span class="p-2"></span></span>
-                <a class="bi bi-facebook btn-lg text-primary p-0" href="#"></a><span class="p-2"></span></span>
+                <a class="bi bi-whatsapp btn-lg text-success p-0" href="#"></a><span class="p-2"></span>
+                <a class="bi bi-facebook btn-lg text-primary p-0" href="#"></a><span class="p-2"></span>
                 <a class="bi bi-twitter btn-lg text-primary p-0" href="#" target="_blank"></a><span class="p-2"></span>
             </div>
         </nav>
@@ -79,7 +84,7 @@
     <script src="https://getbootstrap.com/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>   
     @await RenderSectionAsync("Scripts", required: false)
 </body>
-<footer class="border-top border-secondary footer position-absolute bg-dark bg-gradient">
+<footer class="border-top border-secondary footer position-absolute bg-dark bg-gradient post-body">
     <div class="container-fluid">
         <span class="text-light">
             &copy; 2021 - Tiber Sabun - Sena KUTLU
@@ -92,7 +97,6 @@
         </span>
         <a class="bi bi-facebook btn-lg text-primary p-0" href="#"></a><span class="p-2"></span></span>
         <a class="bi bi-twitter btn-lg text-primary p-0" href="#" target="_blank"></a><span class="p-2"></span>
-
         <a href="mailto:tiberus.sk@gmail.com" class="float-end ms-3 text-light" title="Mail Gönder"><i class="bi bi-envelope-fill"> tiberus.sk@gmail.com</i></a>
     </div>
 </footer>

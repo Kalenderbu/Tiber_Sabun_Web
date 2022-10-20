@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Collections;
 using System.Diagnostics;
 using Tiber_Sabun_Web.Models;
+using System.Linq;
 
 namespace Tiber_Sabun_Web.Controllers
 {

@@ -4,29 +4,24 @@
     Context VeriTabani = new Context();
     int ListeAdeti = VeriTabani.UrunlerTablosu.ToList().Count();
 }
-<link href="~/css/IndexArkaPlan.css" rel="stylesheet">
 <link href="~/css/Liste.css" rel="stylesheet">
-<style>
-        p.Golgeli {
-        text-align: justify;
-        text-shadow: 3px 5px 5px #000000;
-    }
-</style>
-<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="30000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-    <div class="carousel-inner">
+    <div class="carousel-inner" style="border-radius:3%;">
         <div class="carousel-item active">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect fill="#777" width="100%" height="100%" />
-                <img src="~/Logo/Tiber_1.jpg" width="100%" height="100%" style="opacity:0.4" />
-                </svg>
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                <rect fill="#777" width="100%" height="100%" />
+                <img src="~/Logo/Tiber_1.jpg" width="100%" height="100%" style="opacity:0.30" />
+            </svg>
             <div class="container">
-                <div class="carousel-caption text-start text-shadow ">
+                <div class="carousel-caption text-start text-shadow post-body">
                     <h1 class="text-center mb-3" style="text-shadow:3px 3px 5px #000000;">Doğal Ürünler</h1>
-                    <p class="Golgeli">&emsp;&emsp;Doğa'ya, bitkilere olan ilgimi yararlı yağlara yönlendirerek sabun yapmaya başladım. Bir Roma efsanesine göre sabun ilk defa kadınlar tarafından keşfedilmiştir. Hayvanların kurban edildiği Sapo Dağı'nın kıyısındaki Tiber Nehri'nde çamaşır yıkayan kadınlar, çamaşırlarını eskiye göre daha az çabayla yıkadıklarını farkederler. Çünkü dağdan nehire yağmurla birlikte hayvan yağları ve odun külleri karışmaktadır. Sayfamın adı burdan gelmektedir. Kendime çizdiğim bu yeni yolda umarım uzun bir birlikteliğimiz olur.</p>
+                    <p class="Golgeli ">&emsp;&emsp;Doğa'ya, bitkilere olan ilgimi yararlı yağlara yönlendirerek sabun yapmaya başladım. Bir Roma efsanesine göre sabun ilk defa kadınlar tarafından keşfedilmiştir. Hayvanların kurban edildiği Sapo Dağı'nın kıyısındaki Tiber Nehri'nde çamaşır yıkayan kadınlar, çamaşırlarını eskiye göre daha az çabayla yıkadıklarını farkederler. Çünkü dağdan nehire yağmurla birlikte hayvan yağları ve odun külleri karışmaktadır. Sayfamın adı burdan gelmektedir. Kendime çizdiğim bu yeni yolda umarım uzun bir birlikteliğimiz olur.</p>
                     @*<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>*@
                 </div>
             </div>
@@ -62,32 +57,32 @@
     </a>
 </div>
 <form method="get" asp-controller="Home" asp-action="UrunDetay" enctype="multipart/form-data">
-<div class="jumbotron m-5 p-3 ">
-    <h1 class="text-center">Yeni ürünler</h1>
-    <hr class="my-2">
-    <div class="row">
-        
-        @foreach (var item in Model)
-        {
-            <div class="col-lg-3 col-md-3 mb-4">
-                <div class="card d-flex flex-column">
-                    <button style="background:none;color:inherit;border:none;padding:0;font:inherit;cursor:pointer;outline:inherit;" asp-controller="Home" asp-action="UrunDetay" asp-route-id="@item.ID">
-                        <div class="product-name">@item.Adi</div>
-                        <div class="product-name"><small>@item.KategoriAdi</small></div>
-                        <div class="card-img">
-                            <img src="~/UrunResimleri/@item.Fotolar.Split(';')[0]" alt="">
-                        </div>
-                            <div class="price mt-3">
-                            <div class="del">
-                                <span class="text-dark">5500 uah</span>
+    <div class="jumbotron m-5 p-3 " style="border-radius:3%;position:relative;">
+        <h1 class="text-center">Yeni ürünler</h1>
+        <hr class="my-2">
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-3 mb-4">
+                    <div class="card d-flex flex-column" style="border-radius:5%;">
+                        <button style="background:none;color:inherit;border:none;padding:0;font:inherit;cursor:pointer;outline:inherit;" asp-controller="Home" asp-action="UrunDetay" asp-route-id="@item.ID">
+                            <div class="product-name">@item.Adi</div>
+                            <div class="product-name"><small>@item.KategoriAdi</small></div>
+                            <div class="card-img">
+                                <img src="~/UrunResimleri/@item.Fotolar.Split(';')[0]" alt="">
                             </div>
-                            <div class="font-weight-bold text-success">@item.Fiyat TL</div>
-                        </div>
-                    </button>
+                            <div class="price mt-3">
+                                <div class="del">
+                                    <span class="text-dark">5500 uah</span>
+                                </div>
+                                <div class="font-weight-bold text-success">@item.Fiyat TL</div>
+                            </div>
+                        </button>
                         <a href="/Home/UrunDetay/@item.ID" class="btn container-fluid CardButton text-light bg-success">Ürüne Git</a>
+                    </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
-</div>
 </form>

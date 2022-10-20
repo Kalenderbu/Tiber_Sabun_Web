@@ -1,9 +1,14 @@
-﻿using Microsoft.AspNetCore.Hosting.Server;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Server; ////Net 6 ya vs2022 geçince silinecek
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging; ////Net 6 ya vs2022 geçince silinecek
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using Tiber_Sabun_Web.Models;
 
 namespace Tiber_Sabun_Web.Controllers

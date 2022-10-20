@@ -2,12 +2,11 @@
     ViewData["Title"] = "Ürünler";
 }
 <link href="~/css/Liste.css" rel="stylesheet">
-
 <form method="get" asp-controller="Home" asp-action="UrunDetay" enctype="multipart/form-data">
     <div class="container">
-        <div id="content" class="my-5">
+        <div id="content" class="my-5 " >
             <div class="content ps-3 pb-3">
-                <small>
+                <small class="post-body">
                     <i class="bi bi-house"></i><a class="NoStyleLink p-2" href="/Home/Index">Ana Sayfa</a><i class="bi bi-arrow-right"></i>
                     @if (ViewBag.KategoriYaz != null)
                     {
@@ -23,10 +22,16 @@
             </div>
             <div id="products">
                 <div class="row mx-0">
-                    @foreach (var item in Model)
+                    @{if (Model.Count < 1)
                     {
-                        <div class="col-lg-3 col-md-3 mb-4">
-                            <div class="card d-flex flex-column align-items-center">
+                      <div class="col-lg-3 col-md-3 mb-4">
+                      <b>Kayıt bulunamadı</b>
+                      </div>
+                    }
+                    foreach (var item in Model)
+                    {
+                        <div class="col-lg-3 col-md-3 mb-4" >
+                                <div class="card d-flex flex-column align-items-center" style="border-radius:5%;">
                                 <button style="background:none;color:inherit;border:none;padding:0;font:inherit;cursor:pointer;outline:inherit;" asp-controller="Home" asp-action="UrunDetay" asp-route-id="@item.ID">
                                     <div class="product-name">@item.Adi</div>
                                     <div class="product-name"><small>@item.KategoriAdi</small></div>
@@ -43,6 +48,7 @@
                                 <a href="/Home/UrunDetay/@item.ID" class="btn container-fluid CardButton bg-gradient text-light bg-success">Ürüne Git</a>
                             </div>
                         </div>
+                    }
                     }
                 </div>
             </div>

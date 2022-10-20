@@ -5,7 +5,7 @@
 <link href="~/css/Liste.css" rel="stylesheet">
 
 <div class="container-fluid pb-5">
-    <small>
+    <small class="post-body">
         <i class="bi bi-house"></i><a class="NoStyleLink p-2" href="/Home/Index">Ana Sayfa</a><i class="bi bi-arrow-right"></i><a class="NoStyleLink p-2" href="/Home/UrunListe">Ürünler</a><i class="bi bi-arrow-right"></i><a class="NoStyleLink p-2" asp-controller="Home" asp-action="UrunListe" asp-route-ara="@ViewBag.Kategori">@ViewBag.Kategori</a><i class="bi bi-arrow-right"></i><span class="p-2">@Model.Adi</span>
     </small>
     <div class="row mt-2">
@@ -89,10 +89,10 @@
                     <div class="col-md-12">
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button class="nav-link btn-outline-success bg-gradient active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
                                     Açıklama
                                 </button>
-                                <button class="nav-link btn-outline-success bg-gradient ms-2" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
                                     Kullanılan Yağlar
                                 </button>
                             </div>
